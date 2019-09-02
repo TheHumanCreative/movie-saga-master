@@ -54,7 +54,7 @@ router.put('/update', (req,res) => {
  // genre details
 router.get('/genre/:id', (req,res) => {
 
-    const queryText = `SELECT "genres".name FROM "genres" JOIN "movies_genres" ON "genres".id = "movies_genres".genres_id
+    const queryText = `SELECT array_agg("genres".name) FROM "genres" JOIN "movies_genres" ON "genres".id = "movies_genres".genres_id
                         WHERE "movies_genres".movies_id = $1;`;
     pool
         .query(queryText, [req.params.id])

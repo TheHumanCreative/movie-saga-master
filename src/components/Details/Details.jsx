@@ -22,28 +22,30 @@ class Details extends Component {
         this.fetchGenres();
     }
 
-        fetchDetails(id) {
-            this.props.dispatch({
-                type: 'FETCH_DETAILS',
-                payload: this.props.match.params.id
-            });
-        }
+    fetchDetails(id) {
+        this.props.dispatch({
+            type: 'FETCH_DETAILS',
+            payload: this.props.match.params.id
+        });
+    }
 
-        fetchGenres(id) {
-            this.props.dispatch({
-                type: 'FETCH_GENRES',
-                payload: this.props.match.params.id
-            })
-        }
+    fetchGenres(id) {
+        this.props.dispatch({
+            type: 'FETCH_GENRES',
+            payload: this.props.match.params.id
+        });
+    }
     render() {
 
-        // let genreList = this.props.reduxStore.genreReducer.map(genres => {
-        //     return <li>{genres.name}</li>;
-        // })
+        const genreList = this.props.reduxStore.genresReducer.map(genres => {
+        return (<li key={genres}>{genres}</li>);
+        })
         return (
             <div>
+            
+            {JSON.stringify(this.props.reduxStore.genresReducer.name)}
             <p>{this.props.reduxStore.detailsReducer.title}</p>
-            {/* // <ul>{genreList}</ul> */}
+            <ul>{genreList}</ul>
             <img src={this.props.reduxStore.detailsReducer.poster}
                 alt={this.props.reduxStore.detailsReducer.name}></img>
             <p>{this.props.reduxStore.detailsReducer.description}</p>

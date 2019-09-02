@@ -25,7 +25,7 @@ function* rootSaga() {
 
 
 function* fetchDetails(action) {
-    console.log('fetching details GET:'/ action);
+    console.log('fetching details GET:', action);
     
     try{
         let response = yield axios.get(`/details/${action.payload}`);
@@ -35,7 +35,7 @@ function* fetchDetails(action) {
             payload: response.data
         });
     }catch (error) {
-        console.log('error details GET', error); 
+        yield console.log('error details GET', error); 
     }
 }
 
@@ -113,10 +113,11 @@ const moviesReducer = (state = [], action) => {
 }
 
 // Used to store the movie genres
+// array_agg essentially is a key to maps through the column and returns more than the one value at [i]
 const genresReducer = (state = [], action) => {
     switch (action.type) {
         case 'SET_GENRES':
-            return action.payload;
+            return action.payload.array_agg;
         default:
             return state;
     }
