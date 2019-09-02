@@ -16,8 +16,8 @@ class Edit extends Component {
         this.props.history.push('/') // brings the user to home
     }
 
-    toDetails = () => {
-        this.props.history.push('/details') // brings the user to 
+    toDetails = (id) => {
+        this.props.history.push(`/details/${id}`) // brings the user to 
     }
 
     componentDidMount() {
