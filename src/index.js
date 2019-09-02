@@ -14,25 +14,59 @@ import axios from 'axios';
 
 // Create the rootSaga generator function
 function* rootSaga() {
-    yield takeEvery('FETCH_MOVIES', fetchMovies);
+    yield takeEvery('FETCH_DETAILS', fetchDetails); //SET_DETAILS
+    yield takeEvery('FETCH_GENRES', fetchGenres); //SET_GENRES
+    yield takeEvery('FETCH_MOVIES', fetchMovies); //SET_MOVIES
 }
 
+function* fetchDetails(action) {
+    console.log('fetching details GET:'/ action);
+    
+    try{
+        let response = yield axios.get(`/details/${action.payload}`);
+        yield console.log('details saga GET response', response.data);
+        yield put ({
+            type: 'SET_DETAILS',
+            payload: response.data
+        });
+    }catch (error) {
+        yield console.log('error details GET', error);
+            
+        
+    }
+}
+
+function* fetchGenres(action) {
+    console.log('fetching genres GET:', action);
+    
+    try{
+        let response = yield axios.get(`/genres/${action.payload}`);
+        yield console.log('genres saga GET response', response.data);
+        yield put ({
+            type: 'SET_GENRES',
+            payload: response.data
+        });
+    }catch (error) {
+        yield console.log('error genres GET', error);
+        
+    }
+}
 
 function* fetchMovies(action) {
+    console.log('fetching movies GET:', action);
+    
     try{
         let response = yield axios.get('/home')
         yield console.log(response);
-        yield put({type: 'SET_MOVIES', payload: response.data})
-    }   catch (error) {
+        yield put ({
+            type: 'SET_MOVIES',
+            payload: response.data
+        });
+    }catch (error) {
         yield console.log('error with GET on fetchMovies', error);
     }
 }
 
-// function* fetchGenres(action) {
-//     try{
-
-//     }
-// }
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
 

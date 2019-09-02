@@ -9,7 +9,9 @@ class Home extends Component {
   };
 
   componentDidMount() {
-    this.props.dispatch({ type: "FETCH_MOVIES" });
+    this.props.dispatch({
+         type: "FETCH_MOVIES"
+         });
   }
 
   render() {
