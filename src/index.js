@@ -17,7 +17,12 @@ function* rootSaga() {
     yield takeEvery('FETCH_DETAILS', fetchDetails); //SET_DETAILS
     yield takeEvery('FETCH_GENRES', fetchGenres); //SET_GENRES
     yield takeEvery('FETCH_MOVIES', fetchMovies); //SET_MOVIES
+    yield takeEvery('UPDATE', update); //
+    // yield takeEvery('UPDATE_DESCRIPTION', updateDescription); //
 }
+
+// SAGAS ==========================================================
+
 
 function* fetchDetails(action) {
     console.log('fetching details GET:'/ action);
@@ -30,9 +35,7 @@ function* fetchDetails(action) {
             payload: response.data
         });
     }catch (error) {
-        yield console.log('error details GET', error);
-            
-        
+        console.log('error details GET', error); 
     }
 }
 
@@ -40,14 +43,14 @@ function* fetchGenres(action) {
     console.log('fetching genres GET:', action);
     
     try{
-        let response = yield axios.get(`/genres/${action.payload}`);
+        let response = yield axios.get(`/details/genre/${action.payload}`);
         yield console.log('genres saga GET response', response.data);
         yield put ({
             type: 'SET_GENRES',
             payload: response.data
         });
     }catch (error) {
-        yield console.log('error genres GET', error);
+        console.log('error genres GET', error);
         
     }
 }
@@ -63,9 +66,38 @@ function* fetchMovies(action) {
             payload: response.data
         });
     }catch (error) {
-        yield console.log('error with GET on fetchMovies', error);
+        console.log('error with GET on fetchMovies', error);
     }
 }
+
+function* update(action) {
+    console.log('updating movie title to:', action.payload);
+    console.log(action.payload.id, action.payload.title, action.payload.description);
+    try{
+        yield axios.put(`/details/update`, action.payload);
+        yield put ({
+            type: 'FETCH_DETAILS',
+            payload: action.payload.id
+        })
+    }catch (error) {
+        console.log('Error in POST', error);
+    }
+}
+
+// function* updateDescription(action) {
+//     console.log('updating movie description to:', action.payload);
+//     console.log(action.payload.id, action.payload.description);
+//     try{
+//         yield axios.put(`/details/updateDescription`, action.payload);
+//         yield put ({
+//             type: 'FETCH_DETAILS',
+//             payload: action.payload.id
+//         })
+//     }catch (error) {
+//         console.log('Error in POST', error);
+//     }
+// }
+
 
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
@@ -90,11 +122,22 @@ const genresReducer = (state = [], action) => {
     }
 }
 
+// Storing the selected movie details 
+const detailsReducer = (state = [], action) => {
+    switch (action.type) {
+        case 'SET_DETAILS':
+            return action.payload;
+        default: 
+            return state;
+
+    }
+}
 // Create one store that all components can use
 const storeInstance = createStore(
     combineReducers({
         moviesReducer,
         genresReducer,
+        detailsReducer
     }),
     // Add sagaMiddleware to our store
     applyMiddleware(sagaMiddleware, logger),
