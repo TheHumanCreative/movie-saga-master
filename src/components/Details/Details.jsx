@@ -41,18 +41,24 @@ class Details extends Component {
         return (<li key={genres}>{genres}</li>);
         })
         return (
-            <div>
-            
-            {JSON.stringify(this.props.reduxStore.genresReducer.name)}
-            <p>{this.props.reduxStore.detailsReducer.title}</p>
-            <ul>{genreList}</ul>
-            <img src={this.props.reduxStore.detailsReducer.poster}
-                alt={this.props.reduxStore.detailsReducer.name}></img>
+          <div>
+            {/* {JSON.stringify(this.props.reduxStore.genresReducer.name)} */}
+            <p><b>{this.props.reduxStore.detailsReducer.title}</b></p>
+            <p>
+              <ul>
+                <b>Genres:</b>{genreList}
+              </ul>
+            </p>
+
+            <img
+              src={this.props.reduxStore.detailsReducer.poster}
+              alt={this.props.reduxStore.detailsReducer.name}
+            ></img>
             <p>{this.props.reduxStore.detailsReducer.description}</p>
             <button onClick={this.toHome}>HOME</button>
             <button onClick={this.toEdit}>EDIT</button>
-            </div>
-        )
+          </div>
+        );
     }
 }
 

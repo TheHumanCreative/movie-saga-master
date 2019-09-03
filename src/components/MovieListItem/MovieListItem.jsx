@@ -28,12 +28,11 @@ class MovieListItem extends Component {
     render() {
         return (
           <div>
-            
-                    <h1>{this.props.movies.title}</h1>
-                    <img src={this.props.movies.poster}
-                        alt={this.props.movies.name}
-                    onClick={() => this.props.toDetails(this.props.movies.id)}></img>
-                    <p>{this.props.movies.description}</p>
+            <h1>{this.props.movies.title}</h1>
+            <img src={this.props.movies.poster}
+                alt={this.props.movies.name}
+                onClick={() => this.props.toDetails(this.props.movies.id)}></img>
+             <p>{this.props.movies.description}</p>
     
           </div>
         ); 

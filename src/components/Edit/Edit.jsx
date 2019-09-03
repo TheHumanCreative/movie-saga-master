@@ -74,7 +74,7 @@ class Edit extends Component {
     render() {
         return (
           <div>
-            <p>HEY I AM THE EDIT PAGE</p>
+            {/* <p>HEY I AM THE EDIT PAGE</p> */}
             <form onSubmit={this.updateTitleAndDescription}>
               <TextField
                 label="Edit movie title"
