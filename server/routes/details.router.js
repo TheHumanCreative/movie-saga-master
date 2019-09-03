@@ -19,6 +19,7 @@ router.get("/:id", (req, res) => {
     });
 });
 
+// edit description and title of movie
 router.put('/update', (req,res) => {
     
     const queryText = `UPDATE "movies" SET "title" = $1, "description" = $2 WHERE "id" = $3;`;
@@ -51,6 +52,7 @@ router.put('/update', (req,res) => {
 //             res.sendStatus(500);
 //         })
 // })
+
  // genre details
 router.get('/genre/:id', (req,res) => {
 

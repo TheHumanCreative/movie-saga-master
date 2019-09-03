@@ -17,7 +17,7 @@ function* rootSaga() {
     yield takeEvery('FETCH_DETAILS', fetchDetails); //SET_DETAILS
     yield takeEvery('FETCH_GENRES', fetchGenres); //SET_GENRES
     yield takeEvery('FETCH_MOVIES', fetchMovies); //SET_MOVIES
-    yield takeEvery('UPDATE', update); //
+    yield takeEvery('UPDATE', update); // update title and description
     // yield takeEvery('UPDATE_DESCRIPTION', updateDescription); //
 }
 

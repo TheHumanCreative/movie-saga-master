@@ -8,7 +8,7 @@ class Details extends Component {
     // button / user navigation between pages
 
     toEdit = (id) => {
-        this.props.history.push(`/edit/${id}`) // brings the user to edit
+        this.props.history.push(`/edit/${id}`) // brings the user to edit, and holds onto the id clicked.
     }
 
     toHome = () => {

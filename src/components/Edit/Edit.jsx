@@ -39,6 +39,9 @@ class Edit extends Component {
         });
     }
 
+
+    // COMMENTED OUT AS I WANTED TO MAKE TWO BUTTONS TO COLLECT THE TWO DIFFERENT 
+    // TEXT FIELDS BUT THOUGHT IT WOULD BE EASIER TO GRAB ALL FORM DATA ON ONE BUTTON.
     // handleChange = (property, event) => {
     //     this.setState({
     //         ...this.state,
@@ -77,7 +80,7 @@ class Edit extends Component {
             {/* <p>HEY I AM THE EDIT PAGE</p> */}
             <form onSubmit={this.updateTitleAndDescription}>
               <TextField
-                label="Edit movie title"
+                label="Edit / Update movie title"
                 defaultValue={this.props.reduxStore.detailsReducer.title}
                 onChange={event => this.setState({ title: event.target.value })}
                 fullWidth
@@ -89,11 +92,9 @@ class Edit extends Component {
             <br />
             {/* <form onSubmit={this.handleDescriptionUpdate}> */}
               <TextField
-                label="Edit movie description"
+                label="Edit / Update movie description"
                 defaultValue={this.state.description}
-                onChange={event =>
-                  this.setState({ description: event.target.value })
-                }
+                onChange={event => this.setState({ description: event.target.value })}
                 multiline={true}
                 rows={10}
                 fullWidth

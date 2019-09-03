@@ -3,13 +3,13 @@ import './App.css';
 import { HashRouter as Router, Route } from 'react-router-dom';
 
 // components 
-import Home from '../Home/Home';
+import Home from '../Home/Home'; // making the components linked to App.js
 import Details from '../Details/Details';
 import Edit from '../Edit/Edit';
 
 class App extends Component {
   // Renders the entire app on the DOM
-  render() {
+  render() {  // routes created for the navigation of the App and its components.
     return (
       <Router>
         <div className="App">

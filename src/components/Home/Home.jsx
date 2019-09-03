@@ -13,7 +13,7 @@ import InfoIcon from "@material-ui/icons/Info";
 import Button from "@material-ui/core/Button";
 
 // attempted to get more creative with the styling for the page
-// wanted to get the 
+// wanted to get the overlapping style to work. 
 
 const styles = theme => ({
   root: {
@@ -48,12 +48,12 @@ const styles = theme => ({
 
 class Home extends Component {
   toDetails = id => {
-    console.log("clicked poster", id);
-    this.props.history.push(`/details/${id}`); // brings the user to details
+    console.log("clicked poster", id); // showing the id of the photo / movie clicked. 
+    this.props.history.push(`/details/${id}`); // brings the user to details, and holds the id of the movie clicked on.
   };
 
   componentDidMount() {
-    this.fetchMovies();
+    this.fetchMovies(); // runs on page load and gets the movies from the DataBase
   }
 
   fetchMovies() {
@@ -62,7 +62,7 @@ class Home extends Component {
     });
   }
 
-  render() {
+  render() { // maps through the array of objects and gives the array style upon appending to the DOM.
     let movies = this.props.reduxStore.moviesReducer.map(movies => {
       return (
         <div>
@@ -114,7 +114,7 @@ class Home extends Component {
             variant="contained"
             onClick={this.toDetails}
           >
-            NEXT
+            DETAILS
           </Button>
         </div>
       </div>
@@ -122,6 +122,7 @@ class Home extends Component {
   }
 }
 
+// store on redux the array of objects shown. 
 const mapStateToProps = reduxStore => {
   return {
     reduxStore
