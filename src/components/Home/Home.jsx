@@ -89,11 +89,19 @@ class Home extends Component {
           <GridList
             cols={4}
             rows={3}
-            cellHeight={900}
-            spacing={50}
+            cellHeight={275}
+            spacing={10}
             className={classes.gridList}
           >
             {movies}
+            <Button
+              type="primary"
+              className="nextButton"
+              variant="contained"
+              onClick={this.toDetails}
+            >
+              DETAILS
+            </Button>
           </GridList>
           {/* <ListSubheader component="div">December</ListSubheader>
           <GridListTileBar
@@ -108,14 +116,15 @@ class Home extends Component {
               </IconButton>
             }
           /> */}
-          <Button
+          {/* <Button
             type="primary"
             className="nextButton"
             variant="contained"
             onClick={this.toDetails}
           >
             DETAILS
-          </Button>
+          </Button> */}
+          {/* CAUSE WHO DOESN'T LIKE A BIG BUTTON!! */}
         </div>
       </div>
     );

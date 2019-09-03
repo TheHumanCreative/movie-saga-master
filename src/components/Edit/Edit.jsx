@@ -88,13 +88,15 @@ class Edit extends Component {
               {/* <Button type="submit" className="nextButton" variant="contained">
                 Submit
               </Button> */}
-            {/* </form> */}
-            <br />
-            {/* <form onSubmit={this.handleDescriptionUpdate}> */}
+              {/* </form> */}
+              <br />
+              {/* <form onSubmit={this.handleDescriptionUpdate}> */}
               <TextField
                 label="Edit / Update movie description"
                 defaultValue={this.state.description}
-                onChange={event => this.setState({ description: event.target.value })}
+                onChange={event =>
+                  this.setState({ description: event.target.value })
+                }
                 multiline={true}
                 rows={10}
                 fullWidth
@@ -107,9 +109,22 @@ class Edit extends Component {
               Submit
             </Button> */}
 
-          
-            <button onClick={this.toHome}>HOME</button>
-            <button onClick={this.toDetails}>DETAILS</button>
+            <Button
+              type="primary"
+              className="nextButton"
+              variant="contained"
+              onClick={this.toHome}
+            >
+              HOME
+            </Button>
+            <Button
+              type="primary"
+              className="nextButton"
+              variant="contained"
+              onClick={this.toDetails}
+            >
+              CANCEL / BACK TO DETAILS
+            </Button>
           </div>
         );
     }

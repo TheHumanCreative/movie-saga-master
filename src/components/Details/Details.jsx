@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-
+import Button from "@material-ui/core/Button";
 
 
 class Details extends Component {
@@ -43,10 +43,14 @@ class Details extends Component {
         return (
           <div>
             {/* {JSON.stringify(this.props.reduxStore.genresReducer.name)} */}
-            <p><b>{this.props.reduxStore.detailsReducer.title}</b></p>
+            <p>
+              <h2>
+                <b>{this.props.reduxStore.detailsReducer.title}</b>
+              </h2>
+            </p>
             <p>
               <ul>
-                <b>Genres:</b>{genreList}
+                <b>Genres:{genreList}</b>
               </ul>
             </p>
 
@@ -54,9 +58,23 @@ class Details extends Component {
               src={this.props.reduxStore.detailsReducer.poster}
               alt={this.props.reduxStore.detailsReducer.name}
             ></img>
-            <p>{this.props.reduxStore.detailsReducer.description}</p>
-            <button onClick={this.toHome}>HOME</button>
-            <button onClick={this.toEdit}>EDIT</button>
+            <p className="description">{this.props.reduxStore.detailsReducer.description}</p>
+            <Button
+              type="primary"
+              className="nextButton"
+              variant="contained"
+              onClick={this.toHome}
+            >
+              HOME
+            </Button>
+            <Button
+              type="primary"
+              className="nextButton"
+              variant="contained"
+              onClick={this.toEdit}
+            >
+              EDIT
+            </Button>
           </div>
         );
     }

@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  /* background-color: rgb(72, 155, 127); */
   
 }
 
@@ -19,11 +20,26 @@
   font-size: large;
 }
 
+b {
+  text-align: left;
+  color: black;
+}
+
+.description {
+ background-color: burlywood;
+}
+
+.img {
+  border: rgb(151, 18, 18);
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
 
 ul {
-  list-style-type: none;
+  list-style-type: square;
+  text-align: left;
 }
+

@@ -25,14 +25,14 @@ class MovieListItem extends Component {
         console.log(`/details/${this.props.movies.id}`);
         
     }
-    render() {
+    render() { // commented out the title and description to get the images just to be on the home page.
         return (
           <div>
-            <h1>{this.props.movies.title}</h1>
-            <img src={this.props.movies.poster}
+            {/* <h1>{this.props.movies.title}</h1> */}
+            <img className="img" src={this.props.movies.poster}
                 alt={this.props.movies.name}
                 onClick={() => this.props.toDetails(this.props.movies.id)}></img>
-             <p>{this.props.movies.description}</p>
+             {/* <p>{this.props.movies.description}</p> */}
     
           </div>
         ); 

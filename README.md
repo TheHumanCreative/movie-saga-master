@@ -1,3 +1,55 @@
+##Movie-Sagas
+
+A movie inventory browser which allows users to click on a movie shown, and be taken to a page with more details and the ability to edit the movie's title / description.
+
+##Built With
+
+NodeJS, 
+React, 
+React-Redux, 
+Redux-Sagas, 
+Material-UI, 
+PostgresSQL,
+
+##Getting Started
+
+These instructions will help you to a copy of the project, set it up and have it running on your local machine for development and testing purposes.
+
+##Prerequisites
+
+Before you get started, make sure you have the following software installed on your computer:
+
+Node.js
+PostrgeSQL
+Nodemon
+express
+
+##Installing
+
+##Download the zip of this project
+Create your SQL database and tables using the provided database.sql code
+npm install
+npm run server
+npm run client
+
+##Completed Features
+
+ Home page with photos per movie along with a list of movies
+ Details page that shows the further details on movie selected
+ Edit page that allows the user to edit the description or title as it will also show its updated in the database
+
+##Next Steps
+
+ Allow users to edit genres add their own to help with classification
+ Allow filtering on home page to show certain genres or movies from that genre
+ Allow users to add or remove movies from database to build their collection digitally inventoried
+
+##Authors
+
+Miles Lacek
+
+
+
 # React-Redux with Sagas
 
 > **PLEASE COMMENT YOUR CODE.** Do not clone this repository. Instead, download the zip, extract the contents, `git init`, `git add .`, `git commit -m "initial commit - base project"` and add your remote. Please do this before you leave for the day.
@@ -11,15 +63,15 @@ We'll be able to see movies that exist in our DB. We'll also be able to see deta
 
 ## Database Setup
 
-1. Create a database named `saga_movies_weekend`
-2. Run the queries from `database.sql` on the `saga_movies_weekend` database.
-3. You will need to create the junction table between the `movies` and `genres` tables!
+1. Create a database named `saga_movies_weekend` CHECK
+2. Run the queries from `database.sql` on the `saga_movies_weekend` database. CHECK
+3. You will need to create the junction table between the `movies` and `genres` tables! CHECK 
 
 ## Install Dependencies
 
-1. `npm install`
-2. `npm run server`
-3. `npm run client`
+1. `npm install` CHECK 
+2. `npm run server` CHECK 
+3. `npm run client` CHECK 
 
 ## Notes
 
@@ -30,7 +82,7 @@ We've given you some starter genres in the database. Feel free to change or add 
 We've added some movie posters in the `public/images` folder, and the database is set up to use them.
 
 ### Relationships
-Genres can be applied to many different movies. Movies can have multiple genres. This is Many-to-Many! Junction Table time!
+Genres can be applied to many different movies. Movies can have multiple genres. This is Many-to-Many! Junction Table time! CHECK 
 
 ## Feature List
 
@@ -38,16 +90,18 @@ Genres can be applied to many different movies. Movies can have multiple genres.
 
 ### Home / List Page
 
-This should display all of the movies in the movie database. When a movie poster is clicked, a user should be brought to the `/details` view.
+This should display all of the movies in the movie database. When a movie poster is clicked, a user should be brought to the `/details` view. 
+
+CHECK BUT WANT TO COME BACK TO THIS AND GET THE IMAGES ONLY TO APPEAR ON THE HOME PAGE NOT THE ENTIRE MOVIE ITEM.
 
 ### Details Page
 
-This should show all details **including genres**, for the selected movie.
+This should show all details **including genres**, for the selected movie. CHECK
 
 The details page should have the buttons:
 
-- `Back to List` button, which should bring the user to the Home Page
-- `Edit` button, which should bring the user to the Edit Page
+- `Back to List` button, which should bring the user to the Home Page CHECK HOME BUTTON
+- `Edit` button, which should bring the user to the Edit Page CHECK DETAILS - EDIT BUTTON-to-EDIT PAGE
 
 > Base functionality does not require the movie details to load correctly after refresh of the browser.
 
@@ -55,13 +109,13 @@ The details page should have the buttons:
 
 This should show:
 
-- an input field (for changing the movie title), for the selected movie.
-- a textarea (for changing the movie description)
+- an input field (for changing the movie title), for the selected movie. CHECK Material UI 
+- a textarea (for changing the movie description) CHECK Material UI
 
 The details page should have the buttons:
 
-- `Cancel` button, which should bring the user to the Details Page
-- `Save` button, which should update the title and description in the database and bring the user to the Details Page
+- `Cancel` button, which should bring the user to the Details Page CHECK 
+- `Save` button, which should update the title and description in the database and bring the user to the Details Page CHECK / SUBMIT
 
 > Base functionality does not require the current values (the existing movie title and description) to populate in the input and textarea.
 
